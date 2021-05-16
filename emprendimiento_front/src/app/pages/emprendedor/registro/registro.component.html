@@ -1,0 +1,42 @@
+<section class="horizontal-grid" id="horizontal-grid">
+    <form [formGroup]="emprendimientoForm" class="form">
+        <div class="row text-left">
+            <div clas="col-12">
+                <div class="content-header">Registra tu emprendimiento!</div>
+            </div>
+        </div>
+        <div class="row text-left">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header pb-3">
+                        <h4 class="card-title mb-0">Datos del emprendimiento</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="px-3">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label class="col-9">Titulo o nombre dle emprendimiento o producto:</label>
+                                        <input class="form-control" type="text" formControlName="titulo" />
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="col-9">Descripcion del emprendimiento:</label>
+                                        <input class="form-control" type="text" formControlName="descripcion" />
+                                    </div>
+                                </div>
+                                <div class="form-actions center col-12">
+                                    <button type="button" class="btn btn-raised btn-warning mr-1" (click)="regresar()">
+                                      <i class="ft-x"></i> Cancelar
+                                    </button>
+                                    <button type="button" class="btn btn-raised btn-primary"  (click)="guardar()">
+                                      <i class="fa fa-check-square-o"></i> Enviar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

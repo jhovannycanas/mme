@@ -1,0 +1,44 @@
+<section id="paging" class="mb-3" *ngIf="emprendimiento$?.length === 0">
+  <div class="row text-left">
+      <div class="col-12">
+          <div class="content-header">¡ohh! aun no tienes emprendimientos, registra uno que esperas!</div>
+      </div>
+  </div>
+  </section>
+  
+<section id="paging" class="mb-3" *ngIf="emprendimiento$?.length > 0">
+    <div class="row text-left">
+        <div class="col-12">
+            <div class="content-header">Gestión de emprendimientos</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12"  *ngIf="emprendimiento$?.length > 0">
+          <input type='text' style='padding:8px;margin:15px auto;width:40%;' placeholder='Digite el nombre del emprendimiento para filtrar...' (keyup)='updateFilter($event)'/>
+            <ngx-datatable #table class="bootstrap" [rows]="rows" [columns]="columns" 
+             [columnMode]="'force'" [headerHeight]="50" [footerHeight]="'auto'" [rowHeight]="'auto'" [limit]="10">
+             <ngx-datatable-column name="Emprendimiento #.">
+              <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+                {{rowIndex+1}}
+              </ng-template>
+            </ngx-datatable-column>
+             <ngx-datatable-column *ngFor="let col of columns" [name]="col.name">
+            </ngx-datatable-column>
+             <ngx-datatable-column name="Editar" sortable="false" prop="id">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <a class="success p-0" data-original-title="" title="Editar emprendimiento" [routerLink]="['../actualizaremprendimiento', row.id]">
+                  <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                </a>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Eliminar" sortable="false" prop="id">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                              <a class="danger p-0" data-original-title="" title="Eliminar emprendimiento" (click)="eliminarEmprendimiento(row.id)">
+                  <i class="ft-x font-medium-3 mr-2"></i>
+                </a>
+              </ng-template>
+            </ngx-datatable-column>
+            </ngx-datatable>
+        </div>
+    </div>
+  </section>

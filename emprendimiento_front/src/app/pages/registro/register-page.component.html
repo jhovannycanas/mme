@@ -1,0 +1,82 @@
+<!--Registration Page Starts-->
+
+  <section id="regestration">
+    <form [formGroup]="registroForm">
+
+    <div class="container-fluid">
+      <div class="row full-height-vh m-0">
+        <div class="col-12 d-flex align-items-center justify-content-center">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body register-img">
+                <div class="row m-0">
+                  <div class="col-lg-6 d-none d-lg-block py-2 px-3 text-center">
+                    <img src="../../../assets/img/gallery/register.png" alt="" class="img-fluid mt-3 pl-3" width="400"
+                      height="230" />
+                  </div>
+                  <div class="col-lg-6 col-md-12 pt-3 px-4 bg-white">
+                    <h4 class="card-title mb-2">Crear cuenta</h4>
+                    <p class="card-text mb-3">
+                      Registre los siguientes datos para crear la cuenta.
+                    </p>
+                    <input type="text" class="form-control mb-3" placeholder="Name" formControlName="nombre" />
+                    <input type="text" class="form-control mb-3" placeholder="Primer apellido"
+                      formControlName="primerApellido" />
+                    <input type="text" class="form-control mb-3" placeholder="Segundo apellido"
+                      formControlName="segundoApellido" />
+                    <input type="text" class="form-control mb-3" placeholder="Numero de documento"
+                      formControlName="documento" />
+                    <input type="email" class="form-control mb-3" placeholder="Email"
+                      formControlName="email" />
+                    <input type="text" class="form-control mb-3" placeholder="Usuario" formControlName="user" />
+                    <input type="password" class="form-control mb-3" placeholder="Password"
+                      formControlName="password" />
+                    <input type="date" class="form-control mb-3" placeholder="Fecha nacimiento"
+                      formControlName="fechaNacimiento" />
+                      <label>Selecciona tu perfil </label>
+
+                        
+                        <select class="form-control mb-3"
+                                                formControlName="rol">
+                                                <option value="">- Selecciona -</option>
+                                                <option *ngFor="let rol of roles$" [value]="rol.id">
+                                                    {{rol.nombre }}
+                                                </option>
+                                            </select>
+                      
+                      
+                    <div class="custom-control custom-checkbox custom-control-inline mb-3">
+                      <input type="checkbox" id="customCheckboxInline1" name="customCheckboxInline1"
+                        class="custom-control-input" checked />
+                      <label class="custom-control-label" for="customCheckboxInline1">
+                        Acepto los terminos y condiciones.
+                      </label>
+                    </div>
+                    <div class="fg-actions d-flex justify-content-between">
+                      <div class="login-btn">
+                        <button class="btn btn-outline-primary">
+                          <a href="login-page.html" class="text-decoration-none" [routerLink]="['/login']">
+                            Regresar al login
+                          </a>
+                        </button>
+                      </div>
+                      <div class="recover-pass">
+                        <button class="btn btn-primary" type="button" (click)="crearCuenta()">
+                          <a class="text-decoration-none text-white">
+                            Registar
+                          </a>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  </section>
+
+<!--Registration Page Ends-->

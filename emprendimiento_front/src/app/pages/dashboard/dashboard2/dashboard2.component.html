@@ -1,0 +1,35 @@
+<section id="minimal-statistics">
+  <div class="row text-left">
+    <div class="col-12 mt-3 mb-1">
+      <div class="content-header">¡Bienvenido! {{nombre$}}</div>
+      <p class="content-sub-header">En este portal donde podras emprender o invertir!.</p>
+    </div>
+  </div>
+ 
+  <section id="paging" class="mb-3" *ngIf="emprendimientos$?.length > 0">
+      <div class="row text-left">
+          <div class="col-12">
+              <div class="content-header">Emprendimientos destacados</div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-sm-12"  *ngIf="emprendimientos$?.length > 0">
+            <input type='text' style='padding:8px;margin:15px auto;width:40%;' placeholder='Digite el nombre del emprendimiento o prodcuto que buscas para filtrar...' (keyup)='updateFilter($event)'/>
+              <ngx-datatable #table class="bootstrap" [rows]="rows" [columns]="columns" 
+               [columnMode]="'force'" [headerHeight]="50" [footerHeight]="'auto'" [rowHeight]="'auto'" [limit]="10">
+               <ngx-datatable-column name="Emprendimiento #.">
+                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+                  {{rowIndex+1}}
+                </ng-template>
+              </ngx-datatable-column>
+               <ngx-datatable-column *ngFor="let col of columns" [name]="col.name">
+              </ngx-datatable-column>
+              </ngx-datatable>
+          </div>
+      </div>
+    </section>
+
+
+
+
+
